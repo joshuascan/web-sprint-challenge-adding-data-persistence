@@ -11,14 +11,17 @@ async function find() {
       project_completed: row.project_completed === 1 ? true : false,
     });
   });
-  return rows;
+  return result;
 }
 
 async function add(project) {
   const [id] = await db("projects").insert(project);
 
   const newProject = await db("projects").where("project_id", id).first();
-  return newProject;
+  return {
+    ...newProject,
+    project_completed: newProject.project_completed === 1 ? true : false,
+  };
 }
 
 module.exports = { find, add };
