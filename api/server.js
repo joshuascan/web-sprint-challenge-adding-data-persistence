@@ -11,11 +11,11 @@ server.use(express.json());
 // server.use("/api/resources", resourceRouter);
 // server.use("/api/tasks", taskRouter);
 
-server.use((err, req, res, next) => {
-  res.status(500).json({
-    message: err.message,
-    stack: err.stack,
-  });
-});
+// server.use((err, req, res, next) => {
+//   res.status(500).json({
+//     message: err.message,
+//     stack: err.stack,
+//   });
+// });
 
 module.exports = server;
