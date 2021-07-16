@@ -3,11 +3,11 @@ const Project = require("./model");
 const router = express.Router();
 
 router.get("/", (req, res, next) => {
-  try {
-    res.status(200).json({ message: "get all projects" });
-  } catch (err) {
-    next(err);
-  }
+  Project.find()
+    .then((projects) => {
+      res.json(projects);
+    })
+    .catch(next);
 });
 
 module.exports = router;
