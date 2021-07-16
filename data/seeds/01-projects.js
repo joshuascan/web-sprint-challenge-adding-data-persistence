@@ -15,6 +15,7 @@ exports.seed = function (knex) {
           project_name: "Web Sprint Challenge",
           project_description:
             "This is a challenge to test my ability with handling data persistence",
+          project_completed: false,
         },
       ]);
     });
