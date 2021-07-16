@@ -7,9 +7,7 @@ async function find() {
 
   rows.forEach((row) => {
     result.push({
-      project_id: row.project_id,
-      project_name: row.project_name,
-      project_description: row.project_description,
+      ...row,
       project_completed: row.project_completed === 1 ? true : false,
     });
   });
@@ -24,9 +22,7 @@ function add(project) {
         .where("project_id", project_id)
         .first();
       return {
-        project_id: newProject.project_id,
-        project_name: newProject.project_name,
-        project_description: newProject.project_description,
+        ...newProject,
         project_completed: newProject.project_completed === 1 ? true : false,
       };
     });
