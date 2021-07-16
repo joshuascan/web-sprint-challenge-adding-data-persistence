@@ -21,7 +21,7 @@ async function find() {
     });
   });
 
-  return result;
+  return rows;
 }
 
 async function add(task) {
@@ -39,10 +39,7 @@ async function add(task) {
     .where("t.task_id", id)
     .first();
 
-  return {
-    ...newTask,
-    task_completed: newTask.task_completed === 1 ? true : false,
-  };
+  return newTask;
 }
 
 module.exports = { find, add };
